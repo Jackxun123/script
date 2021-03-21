@@ -1,5 +1,4 @@
 #!/bin/bash
-# shellcheck source=/root/.bashrc
 ############################################
 #  Date:2021/03/31                         #
 #  Author:Jack                             #
