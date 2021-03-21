@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# shellcheck source=/root/.bashrc
 ############################################
 #  Date:2021/03/31                         #
 #  Author:Jack                             #
@@ -14,7 +14,6 @@ export LANG=en_US.UTF-8
 public_key_version="Mr.Robot-V1.0"
 hostname(){
     if [ -f "/usr/bin/hostnamectl" ];then
-        echo "Welcome"
         echo -n "(选填)请输入设置的主机名: "
         stty erase '^H'
         read -r hostname
@@ -38,9 +37,9 @@ jumpserver(){
     fi
     if [ "$(grep -c "$public_key_version" /root/.ssh/authorized_keys)" -eq '0' ];then
         echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDd4+PFsvHdhFVMZndqSBMR0cgXWHl1EHFHyQks+codlVCT6k+OR1E9L6RSvvhmNlYNTyMD5siWlPcJfUhVBoZc9aeplTOPfqxR+EqrHjaD3CrV1FjS9wZY1TBEYip+/NpDZHOda7BQVtAfCeBx168/AZfdtACgH3DefFlZYtJcju6iA6SCiF48M1qtGVNurfVyLD11UTxzYkMaoC2Aafy8y7kFDIsouAopQRAEtJCt7KLhtGWvMXW4HoLnt48EGC4GKFkRwLS6vGyKwUPbwqH4KST7T2298ghOrpfsDbMjK2do+v0kI1dBS7btHThvLm9N1Bs82hp+4aM1PlsqQ+Nj Mr.Robot-V1.0" >> /root/.ssh/authorized_keys
-        echo -e "\033[42;37mAdd public_key success!\033[0m"
+        echo -e "\033[42;37添加公钥$public_key_version成功!\033[0m"
     else
-        echo -e "\033[42;37mAlready added public_key!\033[0m"
+        echo -e "\033[42;37m公钥$public_key_version已存在!\033[0m"
     fi
 }
 PS1(){
@@ -50,7 +49,7 @@ PS1(){
     fi
 }
 
-clear() {
+delete_script() {
     rm -f  Robot_init.sh
 }
 
@@ -58,4 +57,4 @@ clear() {
 hostname
 jumpserver
 PS1
-clear
+delete_script
