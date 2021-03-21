@@ -14,6 +14,7 @@ export LANG=en_US.UTF-8
 public_key_version="Mr.Robot-V1.0"
 hostname(){
     if [ -f "/usr/bin/hostnamectl" ];then
+        echo "Welcome"
         echo -n "(选填)请输入设置的主机名: "
         stty erase '^H'
         read -r hostname
