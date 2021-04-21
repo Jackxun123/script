@@ -1,6 +1,6 @@
 #!/bin/bash
 ############################################
-#  Date:2021/03/31                         #
+#  Date:2021/04/21                         #
 #  Author:Jack                             #
 #                                          #
 #  This script is for System init          #
@@ -42,7 +42,7 @@ jumpserver(){
     fi
 }
 PS1(){
-    if [ "$(grep -c "PS1" /root/.bashrc)" -eq '0' ];then
+    if [ "$(grep -c "^PS1=" /root/.bashrc)" -eq '0' ];then
         echo 'PS1="\[\e[37;40m\][\[\e[32;40m\]\u\[\e[37;40m\]@\h \[\e[36;40m\]\w\[\e[0m\]]\\$ "' >> /root/.bashrc
         source /root/.bashrc
     fi
